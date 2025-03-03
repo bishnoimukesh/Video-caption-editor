@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import VideoPlayer from './components/VideoPlayer';
+import VideoUrlForm from './components/VideoUrlForm';
+import CaptionForm from './components/CaptionForm';
+import CaptionList from './components/CaptionList';
+import { VideoCaptionProvider } from './context/VideoCaptionContext';
 
-function App() {
-  return (
+const App = () => (
+  <VideoCaptionProvider>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Video Caption Editor</h1>
+      <VideoUrlForm />
+      <VideoPlayer />
+      <CaptionForm />
+      <CaptionList />
     </div>
-  );
-}
+  </VideoCaptionProvider>
+);
 
 export default App;
